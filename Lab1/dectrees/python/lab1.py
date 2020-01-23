@@ -90,8 +90,6 @@ monk1train, monk1val = partition(m.monk1, 0.6)
 fraction = [0.3, 0.4, 0.5, 0.6, 0.7, 0.8]
 
 
-#data = m.monk1
-#test = m.monk1test
 
 def prune(data, test):
 	pruned_trees_fraction = []
@@ -112,8 +110,6 @@ def prune(data, test):
 	return pruned_trees_fraction
 
 
-prune(m.monk1, m.monk1test)
-prune(m.monk3, m.monk3test)
 
 monk1_error_prune = []
 monk3_error_prune = []
