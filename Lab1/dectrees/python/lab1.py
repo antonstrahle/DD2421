@@ -121,8 +121,8 @@ for i in range(1000):
 
 monk1_mean_error = np.mean(monk1_error_prune, axis = 0)
 monk3_mean_error = np.mean(monk3_error_prune, axis = 0)
-monk1_sd_error = np.std(monk1_error_prune, axis = 0)
-monk3_sd_error = np.std(monk3_error_prune, axis = 0)
+monk1_sd_error = np.round(np.std(monk1_error_prune, axis = 0), 4)
+monk3_sd_error = np.round(np.std(monk3_error_prune, axis = 0),4)
 
 
 
@@ -143,6 +143,7 @@ plt.plot(fraction, monk1_mean_error,label="Monk-1", marker='o')
 plt.plot(fraction, monk3_mean_error,label="Monk-3", marker='o')
 plt.legend(loc="upper right")
 plt.xlim(0, 1) 
+plt.ylim(0, 0.25)
 plt.title("Mean Error vs Partition Fraction")
 plt.xlabel("Fraction")
 plt.ylabel("Mean Error")
