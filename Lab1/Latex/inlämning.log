@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.31)  2 FEB 2020 13:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.10.31)  2 FEB 2020 14:24
 entering extended mode
 **./inlämning.tex
 (inlämning.tex
@@ -863,11 +863,11 @@ Package microtype Info: Loading generic protrusion settings for font family
 AED: lastpage setting LastPage
 [4] (inlämning.aux) ) 
 Here is how much of TeX's memory you used:
- 19255 strings out of 492453
- 352254 string characters out of 3129819
+ 19253 strings out of 492453
+ 352234 string characters out of 3129819
  627906 words of memory out of 3000000
  23095 multiletter control sequences out of 15000+200000
- 54236 words of font info for 97 fonts, out of 3000000 for 9000
+ 54153 words of font info for 96 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,6n,83p,585b,1251s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc
@@ -885,7 +885,7 @@ r7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy7.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/lm/lmtt9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/symbols/msbm10.pfb>
-Output written on inlämning.pdf (4 pages, 221439 bytes).
+Output written on inlämning.pdf (4 pages, 221405 bytes).
 PDF statistics:
  138 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
