@@ -160,17 +160,71 @@ def indicator(x, y, nz_a, svs, kernel):
 
 #Inputs
 POLYNOMIAL_GRADE = 2
-SIGMA = 1
+SIGMA = 3
 C = 10
 #Different kernels
 # - linear_kernel
 # - polynomial_kernel
 # - radial_kernel
-kernel = radial_kernel
+kernel = polynomial_kernel
 
 # ================================================== #
 #generate data
 random.seed(100)
+classA, classB = dataset.generateData("1")
+data = classA + classB
+#random.shuffle(data)
+
+# ================================================== #
+#not used 
+#P_matrix = precompute(data, kernel)
+
+#computes whats needed for minimization which gives the a's which in turn gives the svs
+P_matrix, q, h, G = precompute(data, kernel, C)
+nz_a, svs = support_vectors(data, C)
+
+
+# ================================================== #
+# Show the plot
+# ================================================== #
+
+plot_data(classA, classB)
+plot_svs(svs)
+plot_boundaries(nz_a, svs, kernel)
+plt.show()
+
+
+#Radial for donuts with noise
+
+kernel = radial_kernel
+
+classA, classB = dataset.generateData("2")
+data = classA + classB
+#random.shuffle(data)
+
+# ================================================== #
+#not used 
+#P_matrix = precompute(data, kernel)
+
+#computes whats needed for minimization which gives the a's which in turn gives the svs
+P_matrix, q, h, G = precompute(data, kernel, C)
+nz_a, svs = support_vectors(data, C)
+
+
+# ================================================== #
+# Show the plot
+# ================================================== #
+
+plot_data(classA, classB)
+plot_svs(svs)
+plot_boundaries(nz_a, svs, kernel)
+plt.show()
+
+
+#Radial for half moons with noise
+
+kernel = radial_kernel
+
 classA, classB = dataset.generateData("3")
 data = classA + classB
 #random.shuffle(data)
@@ -192,6 +246,7 @@ plot_data(classA, classB)
 plot_svs(svs)
 plot_boundaries(nz_a, svs, kernel)
 plt.show()
+
 
 # ================================================== #
 # Test

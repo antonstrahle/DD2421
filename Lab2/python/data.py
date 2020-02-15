@@ -13,7 +13,11 @@ def basic_dataset():
 
     return classA, classB
 
-def make_circles(rmin, rmax, n, thetaMax, classification):
+# ================================================== #
+# Helper for radial datasets
+# ================================================== #
+
+def make_circles(rmin, rmax, n, thetaMax, classification, osx = 0):
     
     #added gaussian noise to radius
     
@@ -25,19 +29,23 @@ def make_circles(rmin, rmax, n, thetaMax, classification):
     
     for i in range (n):
         
-        x = polar[i][0]*np.cos(polar[i][1])
+        x = polar[i][0]*np.cos(np.deg2rad(polar[i][1])) + random.normalvariate(osx, 0.25)
         
-        y = polar[i][0]*np.sin(polar[i][1])
+        y = polar[i][0]*np.sin(np.deg2rad(polar[i][1])) + random.normalvariate(0, 0.25)
         
         cartesian.append((x,y, classification))
 
     return cartesian
 
+# ================================================== #
+# Creates a radial dataset with a specific max angle 
+# to create donuts, moons, etc
+# ================================================== #
 
-def radial_dataset(thetaMax):
+def radial_dataset(thetaMax, osAx = 0):
     
-    classA = make_circles(0, 2, 20, thetaMax, 1)
-    classB = make_circles(2, 5, 20, thetaMax, -1)
+    classA = make_circles(0, 3, 20, thetaMax, 1, osAx) 
+    classB = make_circles(3, 5, 20, thetaMax, -1)
     
     return classA, classB
 
@@ -51,13 +59,10 @@ def generateData(dataset):
         classA, classB = radial_dataset(360)
     
     elif dataset == "3":
-        classA, classB = radial_dataset(180)
+        classA, classB = radial_dataset(180, 2)
     
     data = classA + classB
     return classA, classB
-
-
-
 
 
 
