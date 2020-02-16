@@ -1,6 +1,6 @@
 \documentclass{article}
-\usepackage[swedish]{babel}	
-\usepackage[utf8]{inputenc} 		
+\usepackage[swedish]{babel}
+\usepackage[utf8]{inputenc}
 \usepackage{amsmath} 
 
 \usepackage{fancyhdr}
@@ -139,6 +139,15 @@ We solve this using the QP function in the CVXOPT package.
 
 \section*{Assignment 2}
 
+\begin{lstlisting}
+def radial_kernel(x, y):
+    diff = np.subtract(x, y)
+    return math.exp((-np.dot(diff, diff)) / (2 * SIGMA * SIGMA))
+
+def polynomial_kernel(x, y):
+	return np.power((np.dot(x, y) + 1), POLYNOMIAL_GRADE)
+\end{lstlisting}
+
 \section*{Assignment 3}
 
 When using a polynomial kernel a higher degree or will classify more precise accordiong to the training set which will increase 
@@ -153,7 +162,16 @@ high variance. This is because a low value of C does not allow for the margins t
 
 \section*{Assignment 5}
 
-If the dataset is noisy it is better to have low/high slack??? Need to think more about this. 
+If we have a noicy dataset, i.e. multiple points deviating from the main clusters we should not opt for a more complex kernel since this would in some sense overfit the boundary to include these specific outliers which of course would impact future predictions negativeley. Instead we should allow for extra slack by increasing $C$, thus sacrificing some predictive power by obtaining a more general, and hopefully better predicting, boundary. 
 
+If we however have have a very sparse and spread out data with no clear major clusters we should consider using a more complex model to be able to incorporate the spread of the different classes. By allowing for extra slack in this case we might obtain a boundry that missclassifies certain minor classes which of course is not to be desired. In these cases with a lot of spread and no clear clusters we might also question the use of SVM entierly.
+
+\section*{Appendix}
+
+\includegraphics[scale = 0.66]{Figure_1.png}
+
+\includegraphics[scale = 0.66]{Figure_2.png}
+
+\includegraphics[scale = 0.66]{Figure_3.png}
 
 \end{document}

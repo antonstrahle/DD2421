@@ -20,7 +20,6 @@ def radial_kernel(x, y):
 
 def polynomial_kernel(x, y):
 	return np.power((np.dot(x, y) + 1), POLYNOMIAL_GRADE)
-    #return (np.dot(np.transpose(x), y) + 1)**POLYNOMIAL_GRADE
 
 def linear_kernel(x, y):
     return np.dot(np.transpose(x), y)
@@ -107,13 +106,13 @@ def support_vectors(data, C):
 
 
 def nonzeroes(a, data):
-  nz_a = []
-  svs = []
-  for i in range(0, len(a)):
-      if a[i] > 1.e-5 or a[i] < -1.e-5:
-        nz_a.append(a[i])
-        svs.append(((data[i])[0], (data[i])[1], (data[i])[2]))
-  return nz_a, svs
+    nz_a = []
+    svs = []
+    for i in range(0, len(a)):
+        if a[i] > 1.e-5 or a[i] < -1.e-5:
+            nz_a.append(a[i])
+            svs.append(((data[i])[0], (data[i])[1], (data[i])[2]))
+    return nz_a, svs
 
 
 # ================================================== #
