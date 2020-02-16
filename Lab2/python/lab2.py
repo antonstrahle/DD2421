@@ -256,3 +256,118 @@ plt.show()
 	  
 #print(objective([3.9151805239128326e-08, 7.50534269335055e-08, 4.186617620877146e-08, 1.6741099140179116, 4.222015765807909e-08, 9.99999974163886, 4.355068226985404e-08, 9.999999946796779, 1.1752545364810855e-07, 9.999999975408896, 8.78195062563677e-08, 1.7913108985341396e-07, 3.540954083472783e-08, 2.414238787799132e-07, 1.4697683793979215, 2.431424601958541, 5.118784020399465e-08, 8.986289830305916, 4.624752950475128e-08, 5.921767201904342e-08, 1.3591069837816013e-07, 9.104416708898657e-08, 1.3681509987615035e-07, 3.4298321031401636e-08, 2.0846947787495605e-07, 2.1204088702516835, 4.3771173344148967e-07, 6.719570340886399e-08, 3.9595857741677554, 8.317242469419501e-08, 3.501199051072653e-07, 1.442879306926475e-07, 5.545666218183946, 9.999999947949538, 6.15696422405948e-08, 4.3352057261715735e-08, 9.999999844410619, 9.999999053129246, 4.3036473188270765e-08, 1.1344594486060692e-07]))
 
+
+
+
+# ================================================================================= #
+# Plots for report / JAN
+# ================================================================================= #
+
+random.seed(1)
+classA, classB = dataset.generateData("1")
+data = classA + classB
+random.shuffle(data)
+#Provided dataset not lineary separable
+
+
+
+
+POLYNOMIAL_GRADE = 2
+C = 0
+kernel = polynomial_kernel
+
+
+P_matrix, q, h, G = precompute(data, kernel, C)
+nz_a, svs = support_vectors(data, C)
+
+plot_svs(svs)
+plot_data(classA, classB)
+plot_boundaries(nz_a, svs, kernel)
+plt.show()
+
+#Inputs
+POLYNOMIAL_GRADE = 3
+C = 0
+kernel = polynomial_kernel
+
+P_matrix, q, h, G = precompute(data, kernel, C)
+nz_a, svs = support_vectors(data, C)
+
+plot_svs(svs)
+plot_data(classA, classB)
+plot_boundaries(nz_a, svs, kernel)
+plt.show()
+
+
+SIGMA = 3
+C = 0
+kernel = radial_kernel
+
+P_matrix, q, h, G = precompute(data, kernel, C)
+nz_a, svs = support_vectors(data, C)
+
+plot_svs(svs)
+plot_data(classA, classB)
+plot_boundaries(nz_a, svs, kernel)
+plt.show()
+
+# ============================================================================================ #
+
+#For showcasing the effect of sigma, radial kernel
+
+SIGMA = 0.5
+C = 0
+kernel = radial_kernel
+
+P_matrix, q, h, G = precompute(data, kernel, C)
+nz_a, svs = support_vectors(data, C)
+
+plot_svs(svs)
+plot_data(classA, classB)
+plot_boundaries(nz_a, svs, kernel)
+plt.show()
+
+
+
+SIGMA = 1
+C = 0
+kernel = radial_kernel
+
+P_matrix, q, h, G = precompute(data, kernel, C)
+nz_a, svs = support_vectors(data, C)
+
+plot_svs(svs)
+plot_data(classA, classB)
+plot_boundaries(nz_a, svs, kernel)
+plt.show()
+
+
+SIGMA = 2
+C = 0
+kernel = radial_kernel
+
+P_matrix, q, h, G = precompute(data, kernel, C)
+nz_a, svs = support_vectors(data, C)
+
+plot_svs(svs)
+plot_data(classA, classB)
+plot_boundaries(nz_a, svs, kernel)
+plt.show()
+
+# ============================================================================================ #
+
+
+C = 1
+kernel = linear_kernel
+
+
+P_matrix, q, h, G = precompute(data, kernel, C)
+nz_a, svs = support_vectors(data, C)
+
+plot_svs(svs)
+plot_data(classA, classB)
+plot_boundaries(nz_a, svs, kernel)
+plt.show()
+
+
+

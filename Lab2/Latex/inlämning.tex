@@ -1,15 +1,14 @@
 \documentclass{article}
-\usepackage[swedish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath} 
 
+\usepackage{float}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{lineno}
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[swedish]{babel}
 \usepackage{microtype}
 \usepackage{systeme}
 \usepackage{amsmath,amssymb,amsthm,mathrsfs,latexsym,tikz,url}
@@ -137,6 +136,34 @@ We solve this using the QP function in the CVXOPT package.
  \item When using a radial kernel, an optimal solution can not be found if the data is not separable at all. 
 \end{itemize}
 
+
+
+For the provided dataset we could not find an optimal solution using linear kernel or polynomial 
+kernel with degree 2, for some seeds. In the figures below our data is separable with polynomial degree 2. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{figure_basic_poly2.png}
+\caption{$C=0$, polynomial degree 2}
+\label{fig:1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{figure_basic_poly3.png}
+\caption{$C=0$, polynomial degree 3}
+\label{fig:2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{figure_basic_radial.png}
+\caption{$C=0$, sigma =  2}
+\label{fig:3}
+\end{figure}
+
+
+
 \section*{Assignment 2}
 
 \begin{lstlisting}
@@ -155,18 +182,57 @@ the variance but decreasing the bias.
 Similarily, when using a Radial Basis Function kernel a lower sigma will increase variance and decrease bias. 
 This may lead to overfitting. 
 
+We can claerly observe in the figures below that we have clearly overfitted when using a too low value of sigma. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{figure_radial_sigma05.png}
+\caption{$C=0$, sigma = 0.5}
+\label{fig:4}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{figure_radial_sigma1.png}
+\caption{$C=0$, sigma = 1}
+\label{fig:5}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{figure_radial_sigma2.png}
+\caption{$C=0$, sigma = 2}
+\label{fig:6}
+\end{figure}
+
 \section*{Assignment 4}
 
 If C is small, then there will be fewer support vectors and hence the resulting classifier will have low bias but
 high variance. This is because a low value of C does not allow for the margins to be as violated as a high value. 
+The main advantage of using slack is that, when for example, if the underlying true calssification is lineary separated 
+but the data has some noise we will still be able to use a linear kernel and allow for some violation of the margins. 
+If the underlying model is simple but some datapoints prevents a simple classification, slack variables are useful. 
+A large/high value of the slack variable will however reduce the accuracy of the model. 
+
+Below is the same data as before which was not lineary separable, however when allowing for some slack we can use linear classification. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{figure_linear_slack1.png}
+\caption{$C=1$, linear kernel}
+\label{fig:7}
+\end{figure}
+
 
 \section*{Assignment 5}
 
-If we have a noicy dataset, i.e. multiple points deviating from the main clusters we should not opt for a more complex kernel since this would in some sense overfit the boundary to include these specific outliers which of course would impact future predictions negativeley. Instead we should allow for extra slack by increasing $C$, thus sacrificing some predictive power by obtaining a more general, and hopefully better predicting, boundary. 
+If we have a noisy dataset, i.e. multiple points deviating from the main clusters we should not opt for a more complex kernel since this would in some sense overfit the boundary to include these specific outliers which of course would impact future predictions negativeley. Instead we should allow for extra slack by increasing $C$, thus sacrificing some predictive power by obtaining a more general, and hopefully better predicting, boundary. 
 
 If we however have have a very sparse and spread out data with no clear major clusters we should consider using a more complex model to be able to incorporate the spread of the different classes. By allowing for extra slack in this case we might obtain a boundry that missclassifies certain minor classes which of course is not to be desired. In these cases with a lot of spread and no clear clusters we might also question the use of SVM entierly.
 
 \section*{Appendix}
+
+
 
 \includegraphics[scale = 0.66]{Figure_1.png}
 
