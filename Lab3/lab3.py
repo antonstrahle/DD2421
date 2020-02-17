@@ -319,6 +319,8 @@ plotBoundary(BoostClassifier(DecisionTreeClassifier(), T=10), dataset='iris',spl
 
 print("Olivetti Faces")
 
+testClassifier(BoostClassifier(DecisionTreeClassifier(), T=10), dataset='olivetti',split=0.7, dim=20)
+
 testClassifier(BoostClassifier(BayesClassifier(), T=10), dataset='olivetti',split=0.7, dim=20)
 
 # You should get an accuracy around 70%. If you wish, you can compare this with using pure decision trees or a boosted bayes classifier. Not too bad, now let's try and classify a face as belonging to one of 40 persons!
