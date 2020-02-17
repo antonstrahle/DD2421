@@ -66,20 +66,18 @@ def mlParams(X, labels, W=None):
     Nclasses = np.size(classes)
 
     if W is None:
-        W = np.ones((Npts,1))/float(Npts)
+        W = np.ones(Npts)/float(Npts)
 
     mu = np.zeros((Nclasses,Ndims))
     sigma = np.zeros((Nclasses,Ndims,Ndims))
 
     # TODO: fill in the code to compute mu and sigma!
     
-    for k in range(len(classes)):
+    zeros =  np.zeros(Npts)
+    
+    for k in range(Nclasses):
         
-        tempW = W
-        
-        indx = np.where(labels != classes[k])[0]
-        
-        tempW[indx] = 0
+        tempW = np.where(labels == classes[k], W, zeros)
         
         mu[k] = np.dot(np.transpose(tempW), X)/np.sum(tempW)
         
