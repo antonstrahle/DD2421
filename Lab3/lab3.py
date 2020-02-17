@@ -43,9 +43,10 @@ def computePrior(labels, W=None):
     prior = np.zeros((Nclasses,1))
 
     # TODO: compute the values of prior for each class!
-    # ==========================
-    
-    # ==========================
+
+    for k in range(Nclasses):
+            
+        prior[k] = sum([1 if label == classes[k] else 0 for label in labels])/len(labels)
 
     return prior
 
@@ -66,11 +67,16 @@ def mlParams(X, labels, W=None):
     mu = np.zeros((Nclasses,Ndims))
     sigma = np.zeros((Nclasses,Ndims,Ndims))
 
-    # TODO: fill in the code to compute mu and sigma!
-    # ==========================
+    # TODO: fill in the code to compute mu and sigma! DONE
     
-    # ==========================
-
+    for k in range(Nclasses):
+        
+        inds = [1 if label == classes[k] else 0 for label in labels]
+        
+        mu[k] = np.dot(inds, X)/sum(inds)
+        
+        sigma[k] = np.diag(np.dot(inds,np.power(X-mu[k],2))/sum(inds))
+                          
     return mu, sigma
 
 # in:      X - N x d matrix of M data points
@@ -86,6 +92,10 @@ def classifyBayes(X, prior, mu, sigma):
 
     # TODO: fill in the code to compute the log posterior logProb!
     # ==========================
+    
+    for k in range(Nclases):
+        
+        logProb[k] = -(np.log(np.linalg.det(sigma[k])) - (X-mu[k]) @ (1/sigma[k]) @ (np.transpose(X-mu[k])))/2 + np.log(prior[k])  
     
     # ==========================
     
@@ -118,14 +128,15 @@ class BayesClassifier(object):
 # 
 # Call `genBlobs` and `plotGaussian` to verify your estimates.
 
-
 X, labels = genBlobs(centers=5)
 mu, sigma = mlParams(X,labels)
 plotGaussian(X,labels,mu,sigma)
 
-
 # Call the `testClassifier` and `plotBoundary` functions for this part.
 
+testClassifier(BayesClassifier)
+
+plotBoundary(BayesClassifier)
 
 #testClassifier(BayesClassifier(), dataset='iris', split=0.7)
 
