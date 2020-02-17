@@ -43,10 +43,14 @@ def computePrior(labels, W=None):
     prior = np.zeros((Nclasses,1))
 
     # TODO: compute the values of prior for each class!
-
+        
+    #Går garanterat att göra utan loop men kan inte tänka klart för tillfället och mm blir knas
+    
     for k in range(Nclasses):
-            
-        prior[k] = sum([1 if label == classes[k] else 0 for label in labels])/len(labels)
+        
+        ind = np.where(labels == classes[k])[0]
+        
+        prior[k] = np.sum(W[ind])/np.sum(W)
 
     return prior
 
@@ -67,15 +71,19 @@ def mlParams(X, labels, W=None):
     mu = np.zeros((Nclasses,Ndims))
     sigma = np.zeros((Nclasses,Ndims,Ndims))
 
-    # TODO: fill in the code to compute mu and sigma! DONE
+    # TODO: fill in the code to compute mu and sigma!
     
-    for k in range(Nclasses):
+    for k in range(len(classes)):
         
-        inds = [1 if label == classes[k] else 0 for label in labels]
+        tempW = W
         
-        mu[k] = np.dot(inds, X)/sum(inds)
+        indx = np.where(labels != classes[k])[0]
         
-        sigma[k] = np.diag(np.dot(inds,np.power(X-mu[k],2))/sum(inds))
+        tempW[indx] = 0
+        
+        mu[k] = np.dot(np.transpose(tempW), X)/np.sum(tempW)
+        
+        sigma[k] = np.diag(np.dot(np.transpose(tempW),np.power(X-mu[k],2))/np.sum(tempW))
                           
     return mu, sigma
 
@@ -171,7 +179,9 @@ plotBoundary(BayesClassifier())
 def trainBoost(base_classifier, X, labels, T=10):
     # these will come in handy later on
     Npts,Ndims = np.shape(X)
-
+    
+    classes = np.unique(labels)
+    
     classifiers = [] # append new classifiers to this list
     alphas = [] # append the vote weight of the classifiers to this list
 
@@ -187,6 +197,26 @@ def trainBoost(base_classifier, X, labels, T=10):
 
         # TODO: Fill in the rest, construct the alphas etc.
         # ==========================
+        
+        eps = 0.0
+        
+        for k in classes:
+            
+            ind = np.where(vote == k)[0]
+            
+            eps += np.sum(np.transopose(wCur)* (1-(k == labels[ind]))) 
+        
+        alpha = (np.log(1-eps) - np.log(eps))/2
+        
+        alphas.append(alpha)
+        
+        wOld = wCur
+        
+        for i in range(len(wOld)):
+            
+            wCur[i] = wOld[i]*np.exp(alpha * (-1)**(vote[i] == labels[i]))
+        
+        wCur = wCur/np.sum(wCur)
         
         # alphas.append(alpha) # you will need to append the new alpha
         # ==========================
