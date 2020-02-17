@@ -93,10 +93,18 @@ def classifyBayes(X, prior, mu, sigma):
     # TODO: fill in the code to compute the log posterior logProb!
     # ==========================
     
-    for k in range(Nclases):
+    for k in range(Nclasses):
         
-        logProb[k] = -(np.log(np.linalg.det(sigma[k])) - (X-mu[k]) @ (1/sigma[k]) @ (np.transpose(X-mu[k])))/2 + np.log(prior[k])  
-    
+        diff = X-mu[k]
+        
+        logSigma = np.log(np.linalg.det(sigma[k]))/2
+        
+        logPrior = np.log(prior[k])
+        
+        for j in range(Npts):
+            
+            logProb[k][j] = -logSigma - np.inner(diff[j]/np.diag(sigma[k]), diff[j])/2 + logPrior
+        
     # ==========================
     
     # one possible way of finding max a-posteriori once
@@ -134,9 +142,9 @@ plotGaussian(X,labels,mu,sigma)
 
 # Call the `testClassifier` and `plotBoundary` functions for this part.
 
-testClassifier(BayesClassifier)
+testClassifier(BayesClassifier())
 
-plotBoundary(BayesClassifier)
+plotBoundary(BayesClassifier())
 
 #testClassifier(BayesClassifier(), dataset='iris', split=0.7)
 
