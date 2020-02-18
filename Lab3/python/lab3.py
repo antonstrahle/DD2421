@@ -41,10 +41,6 @@ def computePrior(labels, W=None):
     Nclasses = np.size(classes)
 
     prior = np.zeros((Nclasses,1))
-
-    # TODO: compute the values of prior for each class!
-        
-    #Går garanterat att göra utan loop men kan inte tänka klart för tillfället och mm blir knas
     
     for k in range(Nclasses):
         
@@ -70,8 +66,6 @@ def mlParams(X, labels, W=None):
 
     mu = np.zeros((Nclasses,Ndims))
     sigma = np.zeros((Nclasses,Ndims,Ndims))
-
-    # TODO: fill in the code to compute mu and sigma!
     
     for k in range(Nclasses):
         
@@ -93,9 +87,6 @@ def classifyBayes(X, prior, mu, sigma):
     Npts = X.shape[0]
     Nclasses,Ndims = np.shape(mu)
     logProb = np.zeros((Nclasses, Npts))
-
-    # TODO: fill in the code to compute the log posterior logProb!
-    # ==========================
     
     for k in range(Nclasses):
         
@@ -150,13 +141,11 @@ testClassifier(BayesClassifier())
 
 plotBoundary(BayesClassifier())
 
+plotBoundary(BayesClassifier(), dataset = 'vowel')
+
 #testClassifier(BayesClassifier(), dataset='iris', split=0.7)
 
-
-
 #testClassifier(BayesClassifier(), dataset='vowel', split=0.7)
-
-
 
 #plotBoundary(BayesClassifier(), dataset='iris',split=0.7)
 
@@ -190,9 +179,6 @@ def trainBoost(base_classifier, X, labels, T=10):
 
         # do classification for each point
         vote = classifiers[-1].classify(X)
-
-        # TODO: Fill in the rest, construct the alphas etc.
-        # ==========================
         
         eps = 0.0
         
@@ -283,11 +269,11 @@ class BoostClassifier(object):
 
 #testClassifier(BoostClassifier(BayesClassifier(), T=10), dataset='vowel',split=0.7)
 
-print("Boosted Bayes")
+#print("Boosted Bayes")
 
-plotBoundary(BoostClassifier(BayesClassifier()), dataset='iris',split=0.7)
+#plotBoundary(BoostClassifier(BayesClassifier()), dataset='iris',split=0.7)
 
-plotBoundary(BoostClassifier(BayesClassifier()), dataset='vowel',split=0.7)
+#plotBoundary(BoostClassifier(BayesClassifier()), dataset='vowel',split=0.7)
 
 # Now repeat the steps with a decision tree classifier.
 
@@ -306,9 +292,9 @@ plotBoundary(BoostClassifier(BayesClassifier()), dataset='vowel',split=0.7)
 
 #plotBoundary(DecisionTreeClassifier(), dataset='iris',split=0.7)
 
-print("Boosted Decision Tree")
+#print("Boosted Decision Tree")
 
-plotBoundary(BoostClassifier(DecisionTreeClassifier(), T=10), dataset='iris',split=0.7)
+#plotBoundary(BoostClassifier(DecisionTreeClassifier(), T=10), dataset='iris',split=0.7)
 
 # ## Bonus: Visualize faces classified using boosted decision trees
 # 
@@ -320,8 +306,6 @@ plotBoundary(BoostClassifier(DecisionTreeClassifier(), T=10), dataset='iris',spl
 print("Olivetti Faces")
 
 testClassifier(BoostClassifier(DecisionTreeClassifier(), T=10), dataset='olivetti',split=0.7, dim=20)
-
-testClassifier(BoostClassifier(BayesClassifier(), T=10), dataset='olivetti',split=0.7, dim=20)
 
 # You should get an accuracy around 70%. If you wish, you can compare this with using pure decision trees or a boosted bayes classifier. Not too bad, now let's try and classify a face as belonging to one of 40 persons!
 
