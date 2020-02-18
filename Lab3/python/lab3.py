@@ -131,17 +131,19 @@ class BayesClassifier(object):
 # 
 # Call `genBlobs` and `plotGaussian` to verify your estimates.
 
-X, labels = genBlobs(centers=5)
-mu, sigma = mlParams(X,labels)
-plotGaussian(X,labels,mu,sigma)
+#X, labels = genBlobs(centers=5)
+#mu, sigma = mlParams(X,labels)
+#plotGaussian(X,labels,mu,sigma)
 
 # Call the `testClassifier` and `plotBoundary` functions for this part.
 
-testClassifier(BayesClassifier())
+#testClassifier(BayesClassifier())
 
-plotBoundary(BayesClassifier())
+#testClassifier(BayesClassifier(), dataset = 'vowel')
 
-plotBoundary(BayesClassifier(), dataset = 'vowel')
+#plotBoundary(BayesClassifier())
+
+#plotBoundary(BayesClassifier(), dataset = 'vowel')
 
 #testClassifier(BayesClassifier(), dataset='iris', split=0.7)
 
@@ -218,10 +220,6 @@ def classifyBoost(X, classifiers, alphas, Nclasses):
         return classifiers[0].classify(X)
     else:
         votes = np.zeros((Npts,Nclasses))
-
-        # TODO: implement classificiation when we have trained several classifiers!
-        # here we can do it by filling in the votes vector with weighted votes
-        # ==========================
         
         for j in range(Ncomps):
             
@@ -264,14 +262,14 @@ class BoostClassifier(object):
 # Call the `testClassifier` and `plotBoundary` functions for this part.
 
 
-#testClassifier(BoostClassifier(BayesClassifier(), T=10), dataset='iris',split=0.7)
+testClassifier(BoostClassifier(BayesClassifier(), T=10), dataset='iris',split=0.7)
 
 
 #testClassifier(BoostClassifier(BayesClassifier(), T=10), dataset='vowel',split=0.7)
 
 #print("Boosted Bayes")
 
-#plotBoundary(BoostClassifier(BayesClassifier()), dataset='iris',split=0.7)
+plotBoundary(BoostClassifier(BayesClassifier()), dataset='iris',split=0.7)
 
 #plotBoundary(BoostClassifier(BayesClassifier()), dataset='vowel',split=0.7)
 

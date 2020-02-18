@@ -89,7 +89,7 @@ We can apply the function \texttt{mlParams} for data consisting of several bivar
 
 \begin{figure}
     \centering
-    \includegraphics[scale = 0.75]{Figure_1.png}
+    \includegraphics[height=100mm, width=100mm]{Figure_1.png}
     \caption{Guassian Confidence Intervals}
 \end{figure}
 
@@ -152,17 +152,112 @@ We can plot the classification boundaries for the respective data sets as follow
 
 \begin{figure}
     \centering
-    \includegraphics[scale = 0.75]{BayesIris.png}
-    \caption{Bayes Classifier: Iries}
-\end{figure}
+    \includegraphics[scale = 0.90]{BayesIris.png}
+    \caption{Bayes Classifier: Iris}
+t\end{figure}
+
+When using the naive bayes classifier for the iris dataset we get that the trained classifier has a mean classification accuracy of 89 with a standard deviation of 4.16.
 
 \begin{figure}
     \centering
-    \includegraphics[scale = 0.75]{BayesVowel.png}
-    \caption{Bayes Classifier: Iries}
+    \includegraphics[scale = 0.90]{BayesVowel.png}
+    \caption{Bayes Classifier: Vowel}
 \end{figure}
 
-\section*{Assignment 4}
+When using the naive bayes classifier for the vowel dataset we get that the trained classifier has a mean classification accuracy of 64.7 with a standard deviation of 4.03. It is not unexpected that the classifier has a higher accuracy for the iris data set compared to the vowel data set since the number of valid targets are much lower for the iris dataset, specifically 3 compared to 11.
+
+Feature independence, which is assumed in the naive bayes classifier, is independence between the features conditioned on the class. In Figure 2 we observe that the features represented on the $x$ and $y$-axis could be said to be independent conditioned on Class 0. If we however observe Classes 1 and 2 instead we note that there is a clear linear dependancy between the features, meaning that the assumption is not satisfied. 
+
+In the iris dataset presented in Figure 2 we note that Classes 1 and 2 seem to overlap slightly. One way to deal with the data, making it more sperabale, could be to transform it into higher dimension. It could also be possible to boost the algorithm, as will be done later on, in order to improve the boundary. 
+
+\section*{Assignment 4 \& 5}
+
+The rewritten versions of \texttt{mlParams} and \texttt{computePrior} were presented in Assignment 1.
+
+We use these rewritten functions in order to implement the Adaboost algorithm as can be seen below.
+
+The function \texttt{trainBoost} trains the booster.
+
+\begin{lstlisting}
+def trainBoost(base_classifier, X, labels, T=10):
+    # these will come in handy later on
+    Npts,Ndims = np.shape(X)
+    
+    classes = np.unique(labels)
+    
+    classifiers = [] # append new classifiers to this list
+    alphas = [] # append the vote weight of the classifiers to this list
+
+    # The weights for the first iteration
+    wCur = np.ones((Npts,1))/float(Npts)
+
+    for i_iter in range(0, T):
+        # a new classifier can be trained like this, given the current weights
+        classifiers.append(base_classifier.trainClassifier(X, labels, wCur))
+
+        # do classification for each point
+        vote = classifiers[-1].classify(X)
+        
+        eps = 0.0
+        
+        for k in classes:
+            
+            ind = np.where(vote == k)[0]
+            
+            eps += np.sum(np.transpose(wCur[ind])* (1-(k == labels[ind]))) 
+        
+        alpha = (np.log(1-eps) - np.log(eps))/2
+        
+        alphas.append(alpha)
+        
+        wOld = wCur
+        
+        for i in range(len(wOld)):
+            
+            wCur[i] = wOld[i]*np.exp(alpha * np.power(-1,(vote[i] == labels[i])))
+        
+        wCur = wCur/np.sum(wCur)
+        
+    return classifiers, alphas
+\end{lstlisting}
+
+Whilst the function \texttt{classifyBoost} classifies using the trained booster.
+
+\begin{lstlisting}
+def classifyBoost(X, classifiers, alphas, Nclasses):
+    Npts = X.shape[0]
+    Ncomps = len(classifiers)
+
+    # if we only have one classifier, we may just classify directly
+    if Ncomps == 1:
+        return classifiers[0].classify(X)
+    else:
+        votes = np.zeros((Npts,Nclasses))
+        
+        for j in range(Ncomps):
+            
+            vote = classifiers[j].classify(X)
+            
+            for i in range(Npts):
+                
+                votes[i, vote[i]] += alphas[j]
+            
+        return np.argmax(votes,axis=1)
+\end{lstlisting}
+
+When using a boosted naive bayes classifiers we get the following boundary.
+        
+\begin{figure}
+    \centering
+    \includegraphics[scale = 0.90]{BoostedBayesIrirs.png}
+    \caption{Adaboosted Bayes Classifier: Iris}
+\end{figure}
+
+We note that the decision boundry is a lote more complex compared to the non-boosted boundry presented in Figure 2. We also get a slight increase in mean classification accuracy 94.1 and with standard deviation 6.72 which is an increase from the non-boosted version. This increase is accuaracy is in some sense expected since we combine the classifications of the type used to classify in the first place. 
+
+We can make up for the fact that the naive bayes classifier lacks complexity by using booisting since the boosting of weak classifiers tend to converge to stronger classifiers.
+
+\section*{Assignment 6}
 
 
 
