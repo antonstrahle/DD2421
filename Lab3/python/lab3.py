@@ -262,35 +262,40 @@ class BoostClassifier(object):
 # Call the `testClassifier` and `plotBoundary` functions for this part.
 
 
-testClassifier(BoostClassifier(BayesClassifier(), T=10), dataset='iris',split=0.7)
+#testClassifier(BoostClassifier(BayesClassifier(), T=10), dataset='iris',split=0.7)
 
 
 #testClassifier(BoostClassifier(BayesClassifier(), T=10), dataset='vowel',split=0.7)
 
 #print("Boosted Bayes")
 
-plotBoundary(BoostClassifier(BayesClassifier()), dataset='iris',split=0.7)
+#plotBoundary(BoostClassifier(BayesClassifier()), dataset='iris',split=0.7)
 
 #plotBoundary(BoostClassifier(BayesClassifier()), dataset='vowel',split=0.7)
 
 # Now repeat the steps with a decision tree classifier.
 
+#print("DecTree Iris")
 
 #testClassifier(DecisionTreeClassifier(), dataset='iris', split=0.7)
 
+#print("Boosted DecTree Iris")
 
 #testClassifier(BoostClassifier(DecisionTreeClassifier(), T=10), dataset='iris',split=0.7)
 
+#print("DecTree Vowel")
 
 #testClassifier(DecisionTreeClassifier(), dataset='vowel',split=0.7)
 
+#print("Boosted DecTree Vowel")
 
 #testClassifier(BoostClassifier(DecisionTreeClassifier(), T=10), dataset='vowel',split=0.7)
 
+#print("DecTree")
 
 #plotBoundary(DecisionTreeClassifier(), dataset='iris',split=0.7)
 
-#print("Boosted Decision Tree")
+#print("Boosted DecTree")
 
 #plotBoundary(BoostClassifier(DecisionTreeClassifier(), T=10), dataset='iris',split=0.7)
 
