@@ -58,7 +58,7 @@
 
 \section*{Assignment 1}
 
-In the function \texttt{mlParams} below we evaluate the $C \times d$ array $\boldsymbol\mu$ and the $C \times d \times d$ array $\boldsymbol\Sigma$ made up of the mean vectors $\boldsymbol\mu_k$ and the covariance matrices $\boldsymbol\Sigma_k$. The expressions for the mean vectors and the covariance matrices are derived through likelihood methods from bivariate guassian distributions.
+In the function \texttt{mlParams} below we evaluate the $C \times d$ array $\boldsymbol\mu$ and the $C \times d \times d$ array $\boldsymbol\Sigma$ made up of the mean vectors $\boldsymbol\mu_k$ and the covariance matrices $\boldsymbol\Sigma_k$. The expressions for the mean vectors and the covariance matrices are derived through likelihood methods from bivariate Gaussian distributions.
 
 \begin{lstlisting}
 def mlParams(X, labels, W=None):
@@ -85,12 +85,12 @@ def mlParams(X, labels, W=None):
     return mu, sigma
 \end{lstlisting}
 
-We can apply the function \texttt{mlParams} for data consisting of several bivariate gaussian distributions and then plot the corresponding $95\%$ confidence intervals for the respective distributions.
+We can apply the function \texttt{mlParams} for data consisting of several bivariate Gaussian distributions and then plot the corresponding $95\%$ confidence intervals for the respective distributions.
 
 \begin{figure}
     \centering
     \includegraphics[height=100mm, width=100mm]{Figure_1.png}
-    \caption{Guassian Confidence Intervals}
+    \caption{Gaussian Confidence Intervals}
 \end{figure}
 
 
@@ -119,7 +119,7 @@ def computePrior(labels, W=None):
     return prior
 \end{lstlisting}
 
-Using the previous function \texttt{mlParams} to compute the arrays $\boldsymbol\mu$ and $\boldsymbol\Sigma$ we can use \texttt{computePrior} to evaluate the posterior probabilities in the function \texttt{classifyBayes} which uses a naive bayes classifier to classify a set of points \texttt{X}.
+Using the previous function \texttt{mlParams} to compute the arrays $\boldsymbol\mu$ and $\boldsymbol\Sigma$ we can use \texttt{computePrior} to evaluate the posterior probabilities in the function \texttt{classifyBayes} which uses a naive Bayes classifier to classify a set of points \texttt{X}.
 
 \begin{lstlisting}
 def classifyBayes(X, prior, mu, sigma):
@@ -156,7 +156,7 @@ We can plot the classification boundaries for the respective data sets as follow
     \caption{Bayes Classifier: Iris}
 \end{figure}
 
-When using the naive bayes classifier for the iris dataset we get that the trained classifier has a mean classification accuracy of 89 with a standard deviation of 4.16.
+When using the naive Bayes classifier for the iris data set we get that the trained classifier has a mean classification accuracy of 89 with a standard deviation of 4.16.
 
 \begin{figure}
     \centering
@@ -164,11 +164,11 @@ When using the naive bayes classifier for the iris dataset we get that the train
     \caption{Bayes Classifier: Vowel}
 \end{figure}
 
-When using the naive bayes classifier for the vowel dataset we get that the trained classifier has a mean classification accuracy of 64.7 with a standard deviation of 4.03. It is not unexpected that the classifier has a higher accuracy for the iris data set compared to the vowel data set since the number of valid targets are much lower for the iris dataset, specifically 3 compared to 11.
+When using the naive Bayes classifier for the vowel data set we get that the trained classifier has a mean classification accuracy of 64.7 with a standard deviation of 4.03. It is not unexpected that the classifier has a higher accuracy for the iris data set compared to the vowel data set since the number of valid targets are much lower for the iris data set, specifically 3 compared to 11.
 
-Feature independence, which is assumed in the naive bayes classifier, is independence between the features conditioned on the class. In Figure 2 we observe that the features represented on the $x$ and $y$-axis could be said to be independent conditioned on Class 0. If we however observe Classes 1 and 2 instead we note that there is a clear linear dependancy between the features, meaning that the assumption is not satisfied. 
+Feature independence, which is assumed in the naive Bayes classifier, is independence between the features conditioned on the class. In Figure 2 we observe that the features represented on the $x$ and $y$-axis could be said to be independent conditioned on Class 0. If we however observe Classes 1 and 2 instead we note that there is a clear linear dependency between the features, meaning that the assumption is not satisfied. 
 
-In the iris dataset presented in Figure 2 we note that Classes 1 and 2 seem to overlap slightly. One way to deal with the data, making it more sperabale, could be to transform it into higher dimension. It could also be possible to boost the algorithm, as will be done later on, in order to improve the boundary. 
+In the iris data set presented in Figure 2 we note that Classes 1 and 2 seem to overlap slightly. One way to deal with the data, making it more separable, could be to transform it into higher dimension. It could also be possible to boost the algorithm, as will be done later on, in order to improve the boundary. 
 
 \section*{Assignment 4 \& 5}
 
@@ -245,7 +245,7 @@ def classifyBoost(X, classifiers, alphas, Nclasses):
         return np.argmax(votes,axis=1)
 \end{lstlisting}
 
-When using a boosted naive bayes classifiers we get the following boundary.
+When using a boosted naive Bayes classifiers we get the following boundary.
         
 \begin{figure}
     \centering
@@ -253,14 +253,14 @@ When using a boosted naive bayes classifiers we get the following boundary.
     \caption{Adaboosted Bayes Classifier: Iris}
 \end{figure}
 
-We note that the decision boundry is a lote more complex compared to the non-boosted boundry presented in Figure 2. We also get a slight increase in the mean classification accuracy 94.1 and with standard deviation 6.72 which is an increase from the non-boosted version. Given that our data lacks extreme outliers this is to be expected since every iteration of the Adaboost algorithm aims to improve the classifier by weighting the missclassified data points to subtly be able to incorporate the into the model. The lack of outliers, which Adaboosting has troubles with due to increasing the weight of the always missclassified outliers the model boosting is in some sense expected to improve the accuracy, which it does.
+We note that the decision boundary is a lot more complex compared to the non-boosted boundary presented in Figure 2. We also get a slight increase in the mean classification accuracy 94.1 and with standard deviation 6.72 which is an increase from the non-boosted version. Given that our data lacks extreme outliers this is to be expected since every iteration of the Adaboost algorithm aims to improve the classifier by weighting the missclassified data points to subtly be able to incorporate the into the model. The lack of outliers, which Adaboosting has troubles with due to increasing the weight of the always missclassified outliers the model boosting is in some sense expected to improve the accuracy, which it does.
 
-As long as our basic model is better than randomly guessing the label and the data set is has some kind of structure, boosting will be able to partially make up for the lack of complexity in the initial model by tweaking the weights and as such achieve better accuracy. The level of improvement obviously depends on the strenght of the initial classifier and the data set in question. It should be noted that boosting "too much" leads to overfitting the data and as such a very weak classifier that requires a lot of boosting might not be able to achieve the same results as another strong classifier due to overfitting.
+As long as our basic model is better than randomly guessing the label and the data set is has some kind of structure, boosting will be able to partially make up for the lack of complexity in the initial model by tweaking the weights and as such achieve better accuracy. The level of improvement obviously depends on the strength of the initial classifier and the data set in question. It should be noted that boosting "too much" leads to overfitting the data and as such a very weak classifier that requires a lot of boosting might not be able to achieve the same results as another strong classifier due to overfitting.
 
 
 \section*{Assignment 6}
 
-When implementing the non-boosted decision tree classifier on the iris dataset we end up with the following results:
+When implementing the non-boosted decision tree classifier on the iris data set we end up with the following results:
 
 \texttt{Final mean classification accuracy  92.4 with standard deviation 3.71}
 
@@ -270,7 +270,7 @@ When Adaboosting the same classifier we get a slight improvement:
 
 We see that the decision tree classifies the iris data quite well even without boosting. When boosting the classifier we only see a slight improvement which would imply that the decision tree could be seen as a strong learner in the case of the iris data.
 
-For the dataset with vowels we have got the following results for the non-boosted decision tree:
+For the data set with vowels we have got the following results for the non-boosted decision tree:
 
 \texttt{Final mean classification accuracy  64.1 with standard deviation 4}
 
@@ -294,28 +294,30 @@ Since the initial classifier had a fairly low accuracy it could be classified as
 
 The non-boosted decision tree classifier seems to only split on the feature presented on the x-axis whilst the Adaboosted tree uses the features on both axes in order to incorporate the initially missclassified data points on between the cluster of class 1 and that of class 2. In this case the boosting of the weak decision tree classifier seems to be able to make up for the choice of a weak classifier in itself.
 
-\text{Assignment 7}
+\section*{Assignment 7}
 
 \begin{itemize}
 
-\item In the case of outliers we should avoid boosting in general since the model will overfit in order to attempt to include the outliers. The choice between naive bayes or a decision tree depends on the data. E.g. dependent features makes bayes bad.
+\item In the case of outliers we should avoid boosting in general since the model will overfit in order to attempt to include the outliers. The choice between naive Bayes or a decision tree depends on the data. E.g. dependent features makes Bayes bad.
 
 \item In the case of a partially irrelevant feature space a decision tree should be chosen as the irrelevant features will in a sense be pruned away. The choice of boosting should depend on how well the decision tree classifies initially.
 
-\item This very much depends on the data. They both have their respective strenghts and weaknesses. Decision trees does for example need quite large amounts of data whilst Naive Bayes assumed independente features etc. The decision to boost also depends on data as discussed in the previous points.
+\item This very much depends on the data. They both have their respective strengths and weaknesses. Decision trees does for example need quite large amounts of data whilst Naive Bayes assumed independent features etc. The decision to boost also depends on data as discussed in the previous points.
 
-\item Decision trees work well with mixed data as they simply split on a threshold. In our case of gaussian naive bayes categorical data would not work since the gaussian distribution is continous. Since the naive bayes classifier always assumes an underlying distribution data needs to be on the same form since there exists no distribution that is both contiuous and discrete.
+\item Decision trees work well with mixed data as they simply split on a threshold. In our case of Gaussian naive Bayes categorical data would not work since the Gaussian distribution is continuous. Since the naive Bayes classifier always assumes an underlying distribution data needs to be on the same form since there exists no distribution that is both contiguous and discrete.
 
-\item In terms of scalability a decision tree works well for large $N$ as previously mentioned. A large number of features $D$ makes the assumption of independent features very unlikely for the naive bayes classifier whilst a decision tree might work better. Larger $N$ increases the probability of outliers which might lead to overfitting when boosting.
+\item In terms of scalability a decision tree works well for large $N$ as previously mentioned. A large number of features $D$ makes the assumption of independent features very unlikely for the naive Bayes classifier whilst a decision tree might work better. Larger $N$ increases the probability of outliers which might lead to overfitting when boosting.
 
 \end{itemize}
 
-\section*{Assignment 7}
+\newpage
+
+\section*{Assignment 8: Olivetti Faces}
 
 \begin{figure}
     \centering
     \includegraphics[scale = 0.90]{Olivetti.png}
-    \caption{Adaboosted Decision Tree Classifier: Olivetti Sphagetti}
+    \caption{Adaboosted Decision Tree Classifier: Olivetti Spaghetti}
 \end{figure}
 
 

@@ -1,7 +1,6 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=latex 2020.2.16)  18 FEB 2020 16:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.2.16)  26 FEB 2020 20:34
 entering extended mode
  restricted \write18 enabled.
- Source specials enabled.
  %&-line parsing enabled.
 **inlämning.tex
 (./inlämning.tex
@@ -590,10 +589,10 @@ Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 (/home/anton/texmf/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: dvips.def on input line 99.
+Package graphics Info: Driver file: pdftex.def on input line 99.
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/dvips.def
-File: dvips.def 2017/06/20 v3.1d Graphics/color driver for dvips
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen120
 \Gin@req@width=\dimen121
@@ -630,21 +629,20 @@ ex
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
 )
-Driver file for pgf: pgfsys-dvips.def
+Driver file for pgf: pgfsys-pdftex.def
 
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-dvips.def
-File: pgfsys-dvips.def 2014/07/09  (rcs-revision 1.25)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
 
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-postsc
-ript.def
-File: pgfsys-common-postscript.def 2008/10/01  (rcs-revision 1.22)
-\pgf@objectcount=\count116
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
+f
+File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 )))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
 tex
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
-\pgfsyssoftpath@smallbuffer@items=\count117
-\pgfsyssoftpath@bigbuffer@items=\count118
+\pgfsyssoftpath@smallbuffer@items=\count116
+\pgfsyssoftpath@bigbuffer@items=\count117
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
 tex
@@ -655,8 +653,9 @@ Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 (/home/anton/texmf/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: dvips.def on input line 225.
+Package xcolor Info: Driver file: pdftex.def on input line 225.
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
 Package xcolor Info: Model `RGB' extended on input line 1364.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
@@ -673,7 +672,7 @@ Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen130
-\pgfmath@count=\count119
+\pgfmath@count=\count118
 \pgfmath@box=\box32
 \pgfmath@toks=\toks41
 \pgfmath@stack@operand=\toks42
@@ -697,7 +696,7 @@ tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
 thmetics.code.tex)))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count120
+\c@pgfmathroundto@lastzeros=\count119
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
 x
@@ -735,7 +734,7 @@ File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgfpic=\box33
 \pgf@hbox=\box34
 \pgf@layerbox@main=\box35
-\pgf@picture@serial@count=\count121
+\pgf@picture@serial@count=\count120
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
 ode.tex
@@ -768,7 +767,7 @@ File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
 \pgf@max=\dimen154
-\pgf@sys@shading@range@num=\count122
+\pgf@sys@shading@range@num=\count121
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
@@ -825,7 +824,7 @@ Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
 .code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count123
+\pgf@plot@mark@count=\count122
 \pgfplotmarksize=\dimen159
 )
 \tikz@lastx=\dimen160
@@ -838,18 +837,18 @@ File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
 \tikz@figbox@bg=\box39
 \tikz@tempbox=\box40
 \tikz@tempbox@bg=\box41
-\tikztreelevel=\count124
-\tikznumberofchildren=\count125
-\tikznumberofcurrentchild=\count126
-\tikz@fig@count=\count127
+\tikztreelevel=\count123
+\tikznumberofchildren=\count124
+\tikznumberofcurrentchild=\count125
+\tikz@fig@count=\count126
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count128
-\pgfmatrixcurrentcolumn=\count129
-\pgf@matrix@numberofcolumns=\count130
+\pgfmatrixcurrentrow=\count127
+\pgfmatrixcurrentcolumn=\count128
+\pgf@matrix@numberofcolumns=\count129
 )
-\tikz@expandcount=\count131
+\tikz@expandcount=\count130
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarytopaths.code.tex
@@ -867,23 +866,23 @@ Package: epigraph 2009/09/02 v1.5c typesetting epigraphs
 \epigraphrule=\skip62
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count132
+\lst@mode=\count131
 \lst@gtempboxa=\box42
 \lst@token=\toks46
-\lst@length=\count133
+\lst@length=\count132
 \lst@currlwidth=\dimen166
-\lst@column=\count134
-\lst@pos=\count135
+\lst@column=\count133
+\lst@pos=\count134
 \lst@lostspace=\dimen167
 \lst@width=\dimen168
-\lst@newlines=\count136
-\lst@lineno=\count137
+\lst@newlines=\count135
+\lst@lineno=\count136
 \lst@maxwidth=\dimen169
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count138
-\lst@skipnumbers=\count139
+\c@lstnumber=\count137
+\lst@skipnumbers=\count138
 \lst@framebox=\box43
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
@@ -914,7 +913,7 @@ Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode is ignored in DVI mode.
+Package pdftexcmds Info: \pdfdraftmode found.
 )
 (/home/anton/texmf/tex/generic/oberdiek/stringenc.sty
 Package: stringenc 2016/05/16 v1.11 Convert strings between diff. encodings (HO
@@ -938,7 +937,7 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 \XKV@toks=\toks47
 \XKV@tempa@toks=\toks48
 )
-\XKV@depth=\count140
+\XKV@depth=\count139
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
@@ -947,18 +946,18 @@ File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.1a (rcs-revision 1.7)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count141
-\calc@Bcount=\count142
+\calc@Acount=\count140
+\calc@Bcount=\count141
 \calc@Adimen=\dimen170
 \calc@Bdimen=\dimen171
 \calc@Askip=\skip63
 \calc@Bskip=\skip64
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count143
+\calc@Ccount=\count142
 \calc@Cskip=\skip65
 )
-\c@@todonotes@numberoftodonotes=\count144
+\c@@todonotes@numberoftodonotes=\count143
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
@@ -986,10 +985,12 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
 (lastpage)             ! on input line 53.
 LaTeX Info: Redefining \microtypecontext on input line 53.
-Package microtype Info: Generating DVI output.
+Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
-Package microtype Info: No font expansion.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `basictext'.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -999,12 +1000,59 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 ABD: EveryShipout initializing macros
-\c@lstlisting=\count145
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count144
+\scratchdimen=\dimen172
+\scratchbox=\box44
+\nofMPsegments=\count145
+\nofMParguments=\count146
+\everyMPshowfont=\toks49
+\MPscratchCnt=\count147
+\MPscratchDim=\dimen173
+\MPnumerator=\count148
+\makeMPintoPDFobject=\count149
+\everyMPtoPDFconversion=\toks50
+) (/home/anton/texmf/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/home/anton/texmf/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/home/anton/texmf/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+))
+(/home/anton/texmf/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/home/anton/texmf/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/home/anton/texmf/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/home/anton/texmf/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\c@lstlisting=\count150
 LaTeX Font Info:    Try loading font information for OT1+lmr on input line 57.
- (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
+
+(/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Try loading font information for OML+lmm on input line 57.
+
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1071,78 +1119,121 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 61.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 61.
+<Figure_1.png, id=4, 462.528pt x 346.896pt>
+File: Figure_1.png Graphic file (type png)
+<use Figure_1.png>
+Package pdftex.def Info: Figure_1.png  used on input line 92.
+(pdftex.def)             Requested size: 284.54124pt x 284.54124pt.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <./Figure_1.png>] [3]
+<BayesIris.png, id=30, 462.528pt x 346.896pt>
+File: BayesIris.png Graphic file (type png)
+<use BayesIris.png>
+Package pdftex.def Info: BayesIris.png  used on input line 155.
+(pdftex.def)             Requested size: 416.27133pt x 312.2035pt.
+
+Overfull \hbox (71.27133pt too wide) in paragraph at lines 155--156
+ [][] 
+ []
+
+<BayesVowel.png, id=31, 462.528pt x 346.896pt>
+File: BayesVowel.png Graphic file (type png)
+<use BayesVowel.png>
+Package pdftex.def Info: BayesVowel.png  used on input line 163.
+(pdftex.def)             Requested size: 416.27133pt x 312.2035pt.
+
+Overfull \hbox (71.27133pt too wide) in paragraph at lines 163--164
+ [][] 
+ []
+
+[4 <./BayesIris.png>] [5 <./BayesVowel.png>] [6]
+<BoostedBayesIrirs.png, id=43, 462.528pt x 346.896pt>
+File: BoostedBayesIrirs.png Graphic file (type png)
+<use BoostedBayesIrirs.png>
+Package pdftex.def Info: BoostedBayesIrirs.png  used on input line 252.
+(pdftex.def)             Requested size: 416.27133pt x 312.2035pt.
+
+Overfull \hbox (71.27133pt too wide) in paragraph at lines 252--253
+ [][] 
+ []
+
+[7] [8 <./BoostedBayesIrirs.png>]
+Overfull \hbox (11.73647pt too wide) in paragraph at lines 265--266
+[]\T1/lmtt/m/n/10 Final mean classification accuracy 92.4 with standard deviati
+on 3.71 
+ []
 
 
-! LaTeX Error: Cannot determine size of graphic in Figure_1.png (no BoundingBox
-).
+Overfull \hbox (11.99896pt too wide) in paragraph at lines 269--270
+[]\T1/lmtt/m/n/10 Final mean classification accuracy 94.6 with standard deviati
+on 3.65 
+ []
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.92 ...ncludegraphics[scale = 0.75]{Figure_1.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+<Dectree.png, id=52, 462.528pt x 346.896pt>
+File: Dectree.png Graphic file (type png)
+<use Dectree.png>
+Package pdftex.def Info: Dectree.png  used on input line 285.
+(pdftex.def)             Requested size: 416.27133pt x 312.2035pt.
 
-File: Figure_1.png Graphic file (type eps)
-<Figure_1.png> [1
+Overfull \hbox (71.27133pt too wide) in paragraph at lines 285--286
+ [][] 
+ []
 
-] [2]
+<BoostedDectree.png, id=53, 462.528pt x 346.896pt>
+File: BoostedDectree.png Graphic file (type png)
+<use BoostedDectree.png>
+Package pdftex.def Info: BoostedDectree.png  used on input line 291.
+(pdftex.def)             Requested size: 416.27133pt x 312.2035pt.
 
-! LaTeX Error: Cannot determine size of graphic in BayesIris.png (no BoundingBo
-x).
+Overfull \hbox (71.27133pt too wide) in paragraph at lines 291--292
+ [][] 
+ []
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.155 ...ludegraphics[scale = 0.90]{BayesIris.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 301.
 
-File: BayesIris.png Graphic file (type eps)
-<BayesIris.png>
+(/usr/share/texmf/tex/latex/lm/omslmr.fd
+File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 301.
+ [9] [10 <./Dectree.png>] [11 <./BoostedDectree.png>] [12]
+<Olivetti.png, id=68, 462.528pt x 346.896pt>
+File: Olivetti.png Graphic file (type png)
+<use Olivetti.png>
+Package pdftex.def Info: Olivetti.png  used on input line 319.
+(pdftex.def)             Requested size: 416.27133pt x 312.2035pt.
 
-! LaTeX Error: Cannot determine size of graphic in BayesVowel.png (no BoundingB
-ox).
+Overfull \hbox (71.27133pt too wide) in paragraph at lines 319--320
+ [][] 
+ []
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.163 ...udegraphics[scale = 0.90]{BayesVowel.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
 
-File: BayesVowel.png Graphic file (type eps)
-<BayesVowel.png> [3] [4]
-
-! LaTeX Error: Cannot determine size of graphic in BoostedBayesIrirs.png (no Bo
-undingBox).
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.252 ...hics[scale = 0.90]{BoostedBayesIrirs.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-File: BoostedBayesIrirs.png Graphic file (type eps)
-<BoostedBayesIrirs.png> [5] 
 AED: lastpage setting LastPage
-[6] (./inlämning.aux) ) 
+[13 <./Olivetti.png>] (./inlämning.aux) ) 
 Here is how much of TeX's memory you used:
- 17487 strings out of 492983
- 320444 string characters out of 6134922
- 441747 words of memory out of 5000000
- 20638 multiletter control sequences out of 15000+600000
- 59850 words of font info for 76 fonts, out of 8000000 for 9000
+ 18237 strings out of 492982
+ 331979 string characters out of 6134896
+ 440635 words of memory out of 5000000
+ 21293 multiletter control sequences out of 15000+600000
+ 62372 words of font info for 106 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,6n,72p,1505b,1685s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,7n,72p,740b,1681s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/
+lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/font
+s/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc
+}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/typ
+e1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></us
+r/share/texmf/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1/pub
+lic/lm/lmmib10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/shar
+e/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm
+/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf
+/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt9
+.pfb>
+Output written on inlämning.pdf (13 pages, 470379 bytes).
+PDF statistics:
+ 115 PDF objects out of 1000 (max. 8388607)
+ 74 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 17968 words of extra memory for PDF output out of 20736 (max. 10000000)
 
-Output written on inlämning.dvi (6 pages, 28960 bytes).
